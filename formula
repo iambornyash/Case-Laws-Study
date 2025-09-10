@@ -1,0 +1,137 @@
+Step 1: Set Up Criteria
+
+We have four criteria:
+
+Cost (₹ crores) – lower is better
+
+Completion Time (years) – lower is better
+
+Experience (number of projects) – higher is better
+
+Local Employment (%) – higher is better
+
+We want to normalize all these values to a 0–1 scale where 1 = best possible value, 0 = worst possible value.
+
+Step 2: Gather Raw Data
+Bidder	Cost	Completion Time	Experience	Local Employment
+L1 (Medi Health)	790	4.5	8	45
+L2 (Care Well)	815	6	12	80
+L3 (Life Line)	875	5	6	60
+Step 3: Normalize Each Factor
+3.1 Cost (Lower is Better)
+
+Formula:
+
+Normalized Cost
+=
+Max Cost – Bid Cost
+Max Cost – Min Cost
+Normalized Cost=
+Max Cost – Min Cost
+Max Cost – Bid Cost
+	​
+
+
+Max Cost = 875 (L3), Min Cost = 790 (L1)
+
+L1: (875 – 790) / (875 – 790) = 85 / 85 = 1
+
+L2: (875 – 815) / 85 = 60 / 85 ≈ 0.706
+
+L3: (875 – 875) / 85 = 0 / 85 = 0
+
+✅ This makes sense: lower cost = higher normalized score.
+
+3.2 Completion Time (Lower is Better)
+
+Formula:
+
+Normalized Time
+=
+Max Time – Bid Time
+Max – Min
+Normalized Time=
+Max – Min
+Max Time – Bid Time
+	​
+
+
+Max Time = 6 (L2), Min Time = 4.5 (L1)
+
+L1: (6 – 4.5) / 1.5 = 1.5 / 1.5 = 1
+
+L2: (6 – 6) / 1.5 = 0 / 1.5 = 0
+
+L3: (6 – 5) / 1.5 = 1 / 1.5 ≈ 0.667
+
+✅ Lower completion time = higher score, aligns logically.
+
+3.3 Experience (Higher is Better)
+
+Formula:
+
+Normalized Experience
+=
+Bid Experience – Min Experience
+Max – Min
+Normalized Experience=
+Max – Min
+Bid Experience – Min Experience
+	​
+
+
+Max = 12 (L2), Min = 6 (L3)
+
+L1: (8 – 6) / 6 = 2 / 6 ≈ 0.333
+
+L2: (12 – 6) / 6 = 6 / 6 = 1
+
+L3: (6 – 6) / 6 = 0 / 6 = 0
+
+✅ Higher experience → higher normalized score.
+
+3.4 Local Employment (Higher is Better)
+
+Formula:
+
+Normalized Employment
+=
+Bid Employment – Min Employment
+Max – Min
+Normalized Employment=
+Max – Min
+Bid Employment – Min Employment
+	​
+
+
+Max = 80% (L2), Min = 45% (L1)
+
+L1: (45 – 45)/35 = 0/35 = 0
+
+L2: (80 – 45)/35 = 35/35 = 1
+
+L3: (60 – 45)/35 = 15/35 ≈ 0.429
+
+✅ Higher employment → higher score.
+
+Step 4: Overall Score (Optional Weighted Average)
+
+Assuming equal weight for all 4 factors:
+
+Overall Score
+=
+Cost + Time + Experience + Employment
+4
+Overall Score=
+4
+Cost + Time + Experience + Employment
+	​
+
+
+L1: (1 + 1 + 0.333 + 0)/4 = 2.333 / 4 ≈ 0.583
+
+L2: (0.706 + 0 + 1 + 1)/4 = 2.706 / 4 ≈ 0.677
+
+L3: (0 + 0.667 + 0 + 0.429)/4 ≈ 1.096 / 4 ≈ 0.274
+
+✅ Consistent, correct, and fully defensible.
